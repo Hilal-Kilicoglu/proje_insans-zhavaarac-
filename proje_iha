@@ -50,3 +50,7 @@ class İHA(SilahliKuvvetler): #İHA, "insansız hava aracı"nın kısaltması ol
 
     def genel_bilgi(self): #Bu fonksiyon tanımlanan İHA ile ilgili bütün girilen ve fonksiyonlarla bulunan özellikleri topluca yazdırır
         print("İHA Adı:",self.name,"Kullanıma başlanma yılı:",self.yearOfStart,"Kütlesi:",self.mass,"kg",self.sınıf(),"Görev yüksekliği:",self.elevation,"ft",self.görev_yarıçapı())
+
+#deneme yapılabilecek iki örnek nesne 
+BayraktarTB2=İHA("BAyraktarTB2", 2018, 650, 27000)
+BayraktarMiniİha=İHA("BayraktarMiniİha", 2020, 9.9, 2000)
