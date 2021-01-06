@@ -1,12 +1,11 @@
 class İHA(SilahliKuvvetler): #İHA, "insansız hava aracı"nın kısaltması olarak kullanılmıştır
     "Tanımlanan bu sınıf 'insansız hava araçları' yani 'iha' sınıfıdır ve silahlı kuvvetler sınıfından türemiştir."
     
-    print("Lütfen tanımlayacağınız İHA'nın kütlesini kilogram ve görev yüksekliğini de feet olarak giriniz.")
-    
     def __init__(self, name, yearOfStart, mass, elevation):
         SilahliKuvvetler.__init__(self, name, yearOfStart)
         self.mass=mass
         self.elevation=elevation
+        print("Lütfen tanımladığınız İHA'nın kütlesini kilogram ve görev yüksekliğini feet olarak girdiğinizden emin olun.")
 
     def sınıf(self): #Bu fonksiyon aracın hangi sınıfa ait olduğunu belirleyip yazdırır #Aracın kütlesi kilogram(kg) olarak girilmelidir
         if self.mass<150: #Eğer kütle 150 kg'dan daha azsa sınıf kendi içinde kategorilere ayrılır.
@@ -49,8 +48,8 @@ class İHA(SilahliKuvvetler): #İHA, "insansız hava aracı"nın kısaltması ol
             print("Bu İHA, Türk havacılık tarihinde var olan irtifa rekorunu kırmıştır. Eski rekor 27.030 ft ile Bayraktar TB2'ye aitti.")
 
     def genel_bilgi(self): #Bu fonksiyon tanımlanan İHA ile ilgili bütün girilen ve fonksiyonlarla bulunan özellikleri topluca yazdırır
-        print("İHA Adı:",self.name,"Kullanıma başlanma yılı:",self.yearOfStart,"Kütlesi:",self.mass,"kg",self.sınıf(),"Görev yüksekliği:",self.elevation,"ft",self.görev_yarıçapı())
+        print("İHA Adı:",self.name,"Kullanıma başlanma yılı:",self.yearOfStart,"Kütlesi:",self.mass,"kg","Görev yüksekliği:",self.elevation,"ft",self.görev_yarıçapı(), self.sınıf())
 
 #deneme yapılabilecek iki örnek nesne 
-BayraktarTB2=İHA("BAyraktarTB2", 2018, 650, 27000)
-BayraktarMiniİha=İHA("BayraktarMiniİha", 2020, 9.9, 2000)
+iha1=İHA("BAyraktarTB2", 2018, 650, 27000)
+iha2=İHA("BayraktarMiniİha", 2020, 9.9, 2000)
