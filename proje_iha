@@ -1,0 +1,52 @@
+class İHA(SilahliKuvvetler): #İHA, "insansız hava aracı"nın kısaltması olarak kullanılmıştır
+    "Tanımlanan bu sınıf 'insansız hava araçları' yani 'iha' sınıfıdır ve silahlı kuvvetler sınıfından türemiştir."
+    
+    print("Lütfen tanımlayacağınız İHA'nın kütlesini kilogram ve görev yüksekliğini de feet olarak giriniz.")
+    
+    def __init__(self, name, yearOfStart, mass, elevation):
+        SilahliKuvvetler.__init__(self, name, yearOfStart)
+        self.mass=mass
+        self.elevation=elevation
+
+    def sınıf(self): #Bu fonksiyon aracın hangi sınıfa ait olduğunu belirleyip yazdırır #Aracın kütlesi kilogram(kg) olarak girilmelidir
+        if self.mass<150: #Eğer kütle 150 kg'dan daha azsa sınıf kendi içinde kategorilere ayrılır.
+            if self.mass<2:
+                return("İHA Sınıf1'e ve mikro kategorisine aittir.")
+            elif self.mass>=2 and self.mass<=20:
+                return("İHA Sınıf1'e ve mini kategorisine aittir.")
+            elif self.mass>20:
+                return("İHA Sınıf1'e ve küçük kategorisine aittir.")         
+        elif 150<=self.mass and self.mass<=600:
+            return("İHA Sınıf2'ye aittir.")    
+        elif 600<self.mass:
+            if self.elevation<45000:
+                return("İHA Sınıf3'e ve 'orta irtifa uzun havada kalış (MALE) kategorisine aittir.")
+            elif self.elevation<65000:
+                return("İHA Sınıf3'e ve 'yüksek irtifa uzun havada kalış (HALE) kategorisine aittir.")
+        else:
+            print("Lütfen aracın kütlesini kilogram olarak doğru şekilde giriniz.")
+
+    def görev_yarıçapı(self): #Bu fonksiyon aracın görev yarıçapını belirleyip yazdırı #Görev yüksekliği Feet(ft) olarak girilmelidir
+        if self.elevation<200:
+            return("Görev yarıçapı: 5 km; LOS") #LOS: İnsanlı ve insansız hava araçları için "görüş hattı" diye belirlenen terim
+        elif self.elevation<3000:
+            return("Görev yarıçapı: 25 km; LOS")
+        elif self.elevation<5000:
+            return("Görev yarıçapı: 50 km; LOS")
+        elif self.elevation<10000:
+            return("Görev yarıçapı: 200 km; LOS")
+        elif self.elevation<45000:
+            return("Görev yarıçapı: limitsiz; BLOS") #BLOS: İnsanlı ve insansız hava araçları için "görüş hattı ötesi" diye belirlenen terim
+        elif self.elevation<65000:
+            return("Görev yarıçapı: limitsiz; BLOS")
+        else:
+            print("Lütfen aracın görev yüksekliğini feet olarak doğru şekilde giriniz.")
+
+    def rekor(self): #Bu fonksiyon aracın, Türk havacılık tarihindeki irtifa rekorunu kırıp kırmadığını yazdırır
+        if self.elevation<27.030:
+            print("Bu İHA, Türk havacılık tarihinde var olan irtifa rekorunu kıramamıştır. Rekor 27.030 ft ile Bayraktar TB2'ye aittir.")
+        elif self.elevation>=27.030:
+            print("Bu İHA, Türk havacılık tarihinde var olan irtifa rekorunu kırmıştır. Eski rekor 27.030 ft ile Bayraktar TB2'ye aitti.")
+
+    def genel_bilgi(self): #Bu fonksiyon tanımlanan İHA ile ilgili bütün girilen ve fonksiyonlarla bulunan özellikleri topluca yazdırır
+        print("İHA Adı:",self.name,"Kullanıma başlanma yılı:",self.yearOfStart,"Kütlesi:",self.mass,"kg",self.sınıf(),"Görev yüksekliği:",self.elevation,"ft",self.görev_yarıçapı())
